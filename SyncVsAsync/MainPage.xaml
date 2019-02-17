@@ -6,9 +6,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="370" Width="450">
 
     <Grid>
-
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <TextBlock Text="Synchronous vs. Asynchronous Example" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+            <TextBlock x:Name="TimeBlock" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <TextBox x:Name="PrimeNumberTextBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Header="Find nth Prime Number" Text="100000" Margin="10,10,10,10" Width="200" InputScope="Number" TextAlignment="Center"/>
+            <Button x:Name="DoSyncTaskButton" Content="Do Synchronous Computation" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" Click="DoSyncTaskButton_click"/>
+            <Button x:Name="DoAsyncTaskButton" Content="Do Asynchronous Computation" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" Click="DoAsyncTaskButton_click"/>
+            <TextBox x:Name="TaskOutput" Header="Task Output" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" Margin="10,10,10,10" Width="200" TextAlignment="Center"/>
+        </StackPanel>
     </Grid>
 </Page>
