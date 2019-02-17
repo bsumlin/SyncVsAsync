@@ -277,6 +277,18 @@ namespace SyncVsAsync
             });
         }
         #endregion
+
+        private void GetRandomNButton_Click(object sender, RoutedEventArgs e)
+        {
+            Random rnd = new Random();
+            PrimeNumberTextBlock.Text = rnd.Next(1, 1000000).ToString();
+            PrimeNumberTextBlock1.Text = rnd.Next(1, 1000000).ToString();
+            PrimeNumberTextBlock2.Text = rnd.Next(1, 1000000).ToString();
+            ElapsedBlock1.Text = "";
+            ElapsedBlock2.Text = "";
+            ElapsedBlock3.Text = "";
+            ElapsedBlock4.Text = "";
+        }
     }
 
     /// <summary>
