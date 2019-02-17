@@ -6,16 +6,42 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="370" Width="450">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
             <TextBlock Text="Synchronous vs. Asynchronous Example" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
             <TextBlock x:Name="TimeBlock" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            <TextBox x:Name="PrimeNumberTextBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Header="Find nth Prime Number" Text="100000" Margin="10,10,10,10" Width="200" InputScope="Number" TextAlignment="Center"/>
-            <Button x:Name="DoSyncTaskButton" Content="Do Synchronous Computation" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" Click="DoSyncTaskButton_click"/>
-            <Button x:Name="DoAsyncTaskButton" Content="Do Asynchronous Computation" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" Click="DoAsyncTaskButton_click"/>
-            <TextBox x:Name="TaskOutput" Header="Task Output" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" Margin="10,10,10,10" Width="200" TextAlignment="Center"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="PrimeNumberTextBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Text="100000" Margin="10,10,10,10" Width="200" InputScope="Number" TextAlignment="Center"/>
+                <TextBox x:Name="PrimeNumberTextBlock1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="200000" Margin="10,10,10,10" Width="200" InputScope="Number" TextAlignment="Center"/>
+                <TextBox x:Name="PrimeNumberTextBlock2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="300000" Margin="10,10,10,10" Width="200" InputScope="Number" TextAlignment="Center"/>
+            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="DoSyncTaskButton" Grid.Row="0" Grid.Column="0" Content="Serial Synchronous Computation" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" Click="DoSerialSyncTaskButton_click"/>
+                <Button x:Name="DoAsyncTaskButton" Grid.Row="1" Grid.Column="0" Content="Serial Asynchronous Computation" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" Click="DoSerialAsyncTaskButton_click"/>
+                <Button x:Name="DoParallelTaskButton" Grid.Row="2" Grid.Column="0" Content="Parallel Synchronous Computation" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" Click="DoParallelSyncTaskButton_click"/>
+                <Button x:Name="DoParallelAsyncTaskButton" Grid.Row="3" Grid.Column="0" Content="Parallel Asynchronous Computation" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" Click="DoParallelAsyncTaskButton_click"/>
+                <TextBlock x:Name="ElapsedBlock1" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock x:Name="ElapsedBlock2" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock x:Name="ElapsedBlock3" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock x:Name="ElapsedBlock4" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="TaskOutput" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" Margin="10,10,10,10" Width="200" TextAlignment="Center"/>
+                <TextBox x:Name="TaskOutput1" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" Margin="10,10,10,10" Width="200" TextAlignment="Center"/>
+                <TextBox x:Name="TaskOutput2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" Margin="10,10,10,10" Width="200" TextAlignment="Center"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
